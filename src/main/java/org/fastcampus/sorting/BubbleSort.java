@@ -1,15 +1,13 @@
 package org.fastcampus.sorting;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 public class BubbleSort {
 
     public static void main(String[] args) {
-        Integer[] numsArray = initArrayNums(10);
-        List<Integer> numsList = Arrays.asList(numsArray.clone());
+        List<Integer> numsList = CreateIntArray.createIntArrayWithRandom(10);
+        Integer[] numsArray = numsList.toArray(new Integer[numsList.size()]);
 
         bubbleSort(numsArray, numsArray.length);
         answer(numsList);
@@ -18,16 +16,6 @@ public class BubbleSort {
         for (Integer num : numsArray) {
             System.out.printf("%d ", num);
         }
-    }
-
-    private static Integer[] initArrayNums(int size) {
-        List<Integer> res = new ArrayList<>();
-
-        for (int i = 0; i < size; i++) {
-            res.add((int)(Math.random() * 100));
-        }
-
-        return res.toArray(new Integer[size]);
     }
 
     private static void bubbleSort(Integer[] nums, int numSize) {
