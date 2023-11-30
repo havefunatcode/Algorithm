@@ -1,4 +1,4 @@
-package org.fastcampus.sorting;
+package org.fastcampus;
 
 import java.util.ArrayList;
 import java.util.List;
