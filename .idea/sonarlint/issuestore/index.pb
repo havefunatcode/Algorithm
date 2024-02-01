@@ -20,5 +20,3 @@ e
 5src/main/java/org/fastcampus/recursive/Fibonacci.java,7\9\79bf099f36fb98d9c060950cac9151d4fec14990
 d
 4src/main/java/org/fastcampus/recursive/Practice.java,2\b\2b0044437a0410b31345bf4f670df2ca238bc541
-`
-0src/main/java/org/fastcampus/CreateIntArray.java,a\d\adf6773afcf3d85e52d490ebdacf4862369dc441
