@@ -19,7 +19,7 @@ def maxSubArray(nums: list[int]) -> int:
         max_right = maxSubArray(arr, mid + 1, right)
         max_mid = left_sum + arr[mid] + right_sum
         
-        return max()
+        return max(max_left, max_right, max_mid)
     return maxSubArray(nums, 0, len(nums) - 1)
 
 print(maxSubArray([-2,1,-3,4,-1,2,1,-5,4]))
