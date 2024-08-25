@@ -148,3 +148,9 @@
 - **4주차: 최종 정리 및 복습**
   - 약한 부분 집중 복습
   - 인터뷰에 대비한 마지막 모의 인터뷰 진행
+
+---
+### LeetCodeHub.io
+- 롤모델인 한정수님이 정리해놓은 LeetCode 75제
+- URL : https://www.leetcodehub.io/
+- 관련 블로그 포스트 : https://www.integer.blog/2023/
