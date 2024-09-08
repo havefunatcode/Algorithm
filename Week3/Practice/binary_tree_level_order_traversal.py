@@ -7,35 +7,13 @@ class TreeNode:
         self.left = left
         self.right = right
 
-def levelOrder(root: Optional[TreeNode]) -> List[List[int]]:
-    if root is None:
-        return root
-    
-    queue = []
-    result = []
-    queue.append(root)
-    
-    while queue:
-        ans = []
-        l = len(queue)
-        for l in range(l):
-            node = queue.pop()
-            ans.append(node.val)
-            if node.left != None:
-                queue.append(node.left)
-            if node.right != None:
-                queue.append(node.right)
-        result.append(ans)
-    return result
-
 class Solution:
-    def levelOrderBfs(self, root: Optional[TreeNode]) -> List[List[int]]:
+    def levelOrderBfs(self, root:Optional[TreeNode]) -> List[List[int]]:
         if root is None:
-            return root
-
-        result: List[List[int]] = []
-        # (node, level)
+            return []
+        
         queue = deque([(root, 0)])
+        result: List[List[int]] = []
         
         while queue:
             node, level = queue.popleft()
@@ -49,17 +27,18 @@ class Solution:
                 queue.append((node.left, level + 1))
             if node.right:
                 queue.append((node.right, level + 1))
-            
+        
         return result
-
+            
+        
     def levelOrderDfsRecursive(self, root: Optional[TreeNode]) -> List[List[int]]:
         def dfs(node: Optional[TreeNode], level: int) -> None:
-            if not node:
+            if node is None:
                 return
             
             if len(result) == level:
                 result.append([])
-            
+                
             result[level].append(node.val)
             
             dfs(node.left, level + 1)
@@ -68,13 +47,13 @@ class Solution:
         result: List[List[int]] = []
         dfs(root, 0)
         return result
-
+        
     def levelOrderDfsIter(self, root: Optional[TreeNode]) -> List[List[int]]:
-        if not root:
+        if root is None:
             return []
         
         result: List[List[int]] = []
-        stack = [(root, 0)]  # (node, level) 튜플을 저장
+        stack = [(root, 0)]
         
         while stack:
             node, level = stack.pop()
@@ -83,13 +62,16 @@ class Solution:
                 result.append([])
             
             result[level].append(node.val)
-            
+
+
             if node.right:
-                stack.append((node.right, level + 1))
+                stack.append((node.right, level + 1))            
             if node.left:
                 stack.append((node.left, level + 1))
-        
+
+                
         return result
+        
 
 root = TreeNode(3)
 root.left = TreeNode(9)
@@ -97,14 +79,7 @@ root.right = TreeNode(20)
 root.right.left = TreeNode(15)
 root.right.right = TreeNode(7)
 
-# Solution 인스턴스 생성
 solution = Solution()
-
-# BFS 테스트
 print("BFS 결과:", solution.levelOrderBfs(root))
-
-# DFS (재귀) 테스트
 print("DFS (재귀) 결과:", solution.levelOrderDfsRecursive(root))
-
-# DFS (반복) 테스트
 print("DFS (반복) 결과:", solution.levelOrderDfsIter(root))
