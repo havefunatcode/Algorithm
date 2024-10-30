@@ -23,7 +23,7 @@ class Solution:
         prev, head = None, head
         
         while head:
-            head.next, prev, head = prev, head, head.next
+            prev, head, head.next = head, head.next, prev
         return prev
             
 
@@ -42,6 +42,7 @@ def create_linked_list():
 # 사용 예시
 head = create_linked_list()
 reversed_head = Solution().reverseList(head)
+reversed_head_2 = Solution().effectiveReverseList(head)
 # 생성된 리스트 확인을 위한 출력
 current = reversed_head
 while current:
