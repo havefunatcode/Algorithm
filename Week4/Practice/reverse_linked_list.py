@@ -23,7 +23,7 @@ class Solution:
         prev, head = None, head
         
         while head:
-            prev, head, head.next = head, head.next, prev
+            head.next, prev, head = prev, head, head.next
         return prev
             
 
